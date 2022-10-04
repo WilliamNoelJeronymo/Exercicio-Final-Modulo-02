@@ -85,13 +85,10 @@ public class CityControllerIT {
 
 	@Test
 	@Transactional(propagation = Propagation.NEVER) 
-	public void deleteShouldReturnBadRequestWhenDependentId() throws Exception {		
-
+	public void deleteShouldReturnBadRequestWhenDependentId() throws Exception {
 		Long dependentId = 1L;
-		
 		ResultActions result =
 				mockMvc.perform(delete("/cities/{id}", dependentId));
-				
 		result.andExpect(status().isBadRequest());
 	}
 }
